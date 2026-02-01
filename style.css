@@ -1,0 +1,188 @@
+body {
+  background-color: #f0e7db;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.timer-container {
+  background: white;
+  border: 3px solid #333; /* Chunky border */
+  border-radius: 15px;
+  width: 350px;
+  padding: 20px;
+  box-shadow: 8px 8px 0px #333; /* Retro hard shadow */
+}
+
+/* 1. Header with Title & Top-Right Button positioning */
+.timer-header {
+  position: relative; /* Acts as an anchor for absolute children */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timer-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Placeholder for your future settings button */
+.settings-btn-placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* 2. Centered Body with Big Text */
+.timer-body {
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+  height: 150px; /* Fixed height to keep it steady */
+}
+
+#timer {
+  font-size: 5rem; /* Big text */
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+#timer:hover {
+  cursor: default;
+}
+
+/* 3. Footer with Icons */
+.timer-footer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* General UI */
+.icon-btn {
+  cursor: pointer;
+  transition: transform 0.1s;
+  filter: grayscale(1); /* Optional: lofi grey icons */
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+/* 1. Style the Dialog Box itself */
+.dialog {
+  border: 3px solid #333;
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  background: #fdfaf6; /* Slightly lighter than the body */
+  box-shadow: 10px 10px 0px #333; /* Matching your timer shadow */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* 2. Style the Title inside */
+.dialog h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+/* 3. The Backdrop (The background overlay) */
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5); /* Dim the background */
+  backdrop-filter: blur(4px);    /* Modern lofi blur effect */
+}
+
+/* 4. A close button or content styling */
+.dialog-content {
+  margin-top: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.close-btn {
+  margin-top: 20px;
+  padding: 8px 15px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.settings-btn {
+    /* 1. Basic Shape */
+    width: 65px;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+
+    /* 2. Lofi Colors & Border */
+    background-color: #fdfaf6; /* Matches dialog background */
+    color: #333;
+    border: 3px solid #333; /* Chunky border */
+    border-radius: 8px;
+    
+    /* 3. The "Lofi Shadow" */
+    box-shadow: 4px 4px 0px #333;
+    
+    /* 4. Cleaning up UI */
+    outline: none; /* Removes the blue browser outline */
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+}
+
+/* Style when the user clicks/focuses it */
+.settings-btn:focus {
+    transform: translate(2px, 2px); /* "Pressing" effect */
+    box-shadow: 2px 2px 0px #333;
+    background-color: #fff;
+    border-color: #2563eb; /* Subtle hint of color when editing */
+}
+
+/* Removing the tiny up/down arrows (spinners) for a cleaner look */
+.settings-btn::-webkit-inner-spin-button,
+.settings-btn::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+/* Toast styles */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 3px solid #333;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #333;
+  z-index: 9999;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-event: none;  /* So it doesn't block clicks */
+}
+
+.toast-hidden {
+  opacity: 0;
+  transform: translate(-50%, 20px) !important;
+  pointer-events: none;
+}
+
+.toast-alert {
+  border-color: #d45c5c;
+  box-shadow: 5px 5px 0px #d45c5c;
+}

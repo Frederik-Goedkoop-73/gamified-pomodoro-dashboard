@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOFI Pomodoro</title>
+    <link rel="icon" type="icon/x-icon" href="assets/buttons/x_icon.svg" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <h1>LOFI Pomodoro Task Manager</h1>
+
+    <!-- Timer -->
+    <h2>Timer</h2>
+
+    <div class="timer-container">
+      <div class="timer-header">
+        <p id="cycle-counter"></p>
+        <img
+          src="assets/buttons/settings_btn.svg"
+          id="timer-settings-btn"
+          class="icon-btn settings-btn-placeholder"
+          width="30"
+        />
+      </div>
+
+      <div class="timer-body">
+        <p id="timer">mm:ss</p>
+      </div>
+
+      <div class="timer-footer">
+        <img
+          class="icon-btn"
+          id="reset-timer-btn"
+          src="assets/buttons/reset_btn.svg"
+          width="25"
+        />
+
+        <img
+          class="icon-btn"
+          id="start-timer-btn"
+          src="assets/buttons/play_btn.svg"
+          width="35"
+        />
+
+        <img
+          class="icon-btn"
+          id="skip-timer-btn"
+          src="assets/buttons/skip_btn.svg"
+          width="25"
+        />
+      </div>
+    </div>
+
+    <dialog class="dialog" id="timer-settings-dialog">
+      <h2>Settings</h2>
+      <div class="dialog-content">
+        <label> <strong> Work Duration: </strong> </label><br />
+        <input
+          type="number"
+          id="time-settings-input"
+          class="settings-btn"
+          value="25"
+          style="width: 50px"
+        />
+        min<br />
+
+        <label> <strong> Break Duration: </strong> </label><br />
+        <input
+          type="number"
+          id="break-settings-input"
+          class="settings-btn"
+          value="5"
+          style="width: 50px"
+        />
+        min<br />
+
+        <label> <strong> Long Break Duration: </strong> </label><br />
+        <input
+          type="number"
+          id="long-break-settings-input"
+          class="settings-btn"
+          value="15"
+          style="width: 50px"
+        />
+        min
+      </div>
+      <button id="close-timer-settings-btn" class="close-btn">
+        Save & Close
+      </button>
+      <div id="settings-toast-container" class="toast-container toast-hidden">
+        <span id="settings-toast-message"></span>
+      </div>
+    </dialog>
+
+    <div id="general-toast-container" class="toast-container toast-hidden">
+      <span id="general-toast-message"></span>
+    </div>
+
+    <!-- Task manager -->
+    <!-- <h2>Task manager</h2> -->
+
+    <!-- Lofi player (Footer)-->
+    <!-- <h2>LOFI player</h2> -->
+
+    <!-- Import script (no module -> so file can be opened locally – no CORS issues) -->
+    <script src="scripts/main.js" type="module"></script>
+  </body>
+</html>
