@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LOFI Pomodoro</title>
+    <title id="title">LOFI pomodoro</title>
     <link rel="icon" type="icon/x-icon" href="assets/buttons/x_icon.svg" />
 
     <link rel="stylesheet" href="style.css" />
@@ -17,17 +17,17 @@
 
     <div class="timer-container">
       <div class="timer-header">
-        <p id="cycle-counter"></p>
         <img
           src="assets/buttons/settings_btn.svg"
           id="timer-settings-btn"
           class="icon-btn settings-btn-placeholder"
           width="30"
+          draggable="false"
         />
       </div>
 
       <div class="timer-body">
-        <p id="timer">mm:ss</p>
+        <p id="timer">00:00</p>
       </div>
 
       <div class="timer-footer">
@@ -36,6 +36,7 @@
           id="reset-timer-btn"
           src="assets/buttons/reset_btn.svg"
           width="25"
+          draggable="false"
         />
 
         <img
@@ -43,6 +44,7 @@
           id="start-timer-btn"
           src="assets/buttons/play_btn.svg"
           width="35"
+          draggable="false"
         />
 
         <img
@@ -50,12 +52,15 @@
           id="skip-timer-btn"
           src="assets/buttons/skip_btn.svg"
           width="25"
+          draggable="false"
         />
       </div>
     </div>
 
+    <h2 id="cycle-counter">#1</h2>
+
     <dialog class="dialog" id="timer-settings-dialog">
-      <h2>Settings</h2>
+      <h2>Timer Settings</h2>
       <div class="dialog-content">
         <label> <strong> Work Duration: </strong> </label><br />
         <input
