@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- Header -->
-    <h1>LOFI Pomodoro Task Manager</h1>
+    <h1>LOFI Pomodoro</h1>
 
     <!-- Timer -->
     <h2>Timer</h2>
@@ -18,9 +18,16 @@
     <div class="timer-container">
       <div class="timer-header">
         <img
+          class="icon-btn reset-btn-timer-header"
+          id="reset-pomodoro-btn"
+          src="assets/buttons/reset_btn.svg"
+          width="30"
+          draggable="false"
+        />
+        <img
           src="assets/buttons/settings_btn.svg"
           id="timer-settings-btn"
-          class="icon-btn settings-btn-placeholder"
+          class="icon-btn settings-btn-timer-header"
           width="30"
           draggable="false"
         />
@@ -34,7 +41,7 @@
         <img
           class="icon-btn"
           id="reset-timer-btn"
-          src="assets/buttons/reset_btn.svg"
+          src="assets/buttons/timer_reset_btn.svg"
           width="25"
           draggable="false"
         />
@@ -105,7 +112,20 @@
     </div>
 
     <!-- Task manager -->
-    <!-- <h2>Task manager</h2> -->
+    <h2>Task manager</h2>
+    <input
+      type="text"
+      id="task-input"
+      class="settings-btn"
+      placeholder="Input task"
+      style="width: 470px"
+      autocomplete="off"
+    />
+    <button id="add-task-btn" class="settings-btn" style="width: 100px">
+      Add task
+    </button>
+
+    <div id="task-container"></div>
 
     <!-- Lofi player (Footer)-->
     <!-- <h2>LOFI player</h2> -->

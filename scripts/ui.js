@@ -12,20 +12,29 @@ export const UI = {
         breakTimeField: document.getElementById("break-settings-input"),
         longBreakTimeField: document.getElementById("long-break-settings-input"),
 
-        // DOM listeners
+        // Tasks DOM targets
+        taskContainer: document.getElementById("task-container"),
+        addTaskField: document.getElementById("task-input"),
+
+        // Timer DOM listeners
         startBtn: document.getElementById("start-timer-btn"),
         resetBtn: document.getElementById("reset-timer-btn"),
+        pomoResetBtn: document.getElementById("reset-pomodoro-btn"),
         skipBtn: document.getElementById("skip-timer-btn"),
         settingsBtn: document.getElementById("timer-settings-btn"),
-        closeSettingsBtn: document.getElementById("close-timer-settings-btn")
+        closeSettingsBtn: document.getElementById("close-timer-settings-btn"),
+
+        // Tasks DOM listeners
+        addTaskBtn: document.getElementById("add-task-btn"),
 
     },
 
-    renderTime(timeStr, firstTask = "") {
+    // Timer methods
+    renderTime(timeStr, selectedTask = "") {
         this.elements.timer.textContent = timeStr;
         
-        if (firstTask !== "") {
-            this.elements.title.textContent = `${timeStr} – ${firstTask}`;
+        if (selectedTask !== "") {
+            this.elements.title.textContent = `${timeStr} – ${selectedTask}`;
             return;
         }
         this.elements.title.textContent = `${timeStr} – LOFI Pomodoro`
@@ -55,5 +64,13 @@ export const UI = {
         } else {
             this.timerDialog.close();
         }
+    },
+
+    // Tasks methods
+    addTask() {
+        const taskNode = document.createElement("p");
+        taskNode.textContent = this.elements.addTaskField.value;
+
+        this.elements.taskContainer.appendChild(taskNode);
     }
 };

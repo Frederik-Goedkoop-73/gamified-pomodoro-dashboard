@@ -1,0 +1,19 @@
+General:
+- Make static navbar -> general settings (clear progress, profile img, stats, level, coins ...)
+- 
+
+Timer:
+- Save mode, cycleCounts!!!
+    - Save mode -> inside switchMode -> integrate into page load
+    - Save cycle -> cycleUpdate
+- Add volume settings
+- Add options for auto resume
+- Add total cycle count somewhere
+- Add buttons for selecting phase (work, break, long break) like on other website
+
+Task manager:
+- General logic for queueing tasks
+- First task name -> title of website
+
+CSS:
+- Clean classnames and make code more reusable

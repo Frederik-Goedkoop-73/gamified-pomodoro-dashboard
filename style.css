@@ -30,7 +30,13 @@ body {
 }
 
 /* Placeholder for your future settings button */
-.settings-btn-placeholder {
+.reset-btn-timer-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.settings-btn-timer-header {
   position: absolute;
   top: 0;
   right: 0;

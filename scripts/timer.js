@@ -7,6 +7,7 @@ export const Timer = {
     intervalId: null,
 
     // Check storage
+    mode: Storage.get("mode", "work"),
     cycleCount: Storage.get("cycleCount", 1),
     completedCyclesCount: Storage.get("completedCyclesCount", 0),
 
@@ -77,10 +78,12 @@ export const Timer = {
         }
 
         this.update();
+        this.updateCycleCounter();
     },
 
     sessionReset() {
         this.cycleCount = 1;
+        Storage.set("cycleCount", this.cycleCount);
         this.time = this.workTime;
         this.switchMode("work");
 
@@ -91,7 +94,7 @@ export const Timer = {
         this.workTime = 1500;
         this.breakTime = 300;
         this.longBreakTime = 900;
-        
+
         Storage.set("workTime", this.workTime);
         Storage.set("breakTime", this.breakTime);
         Storage.set("longBreakTime", this.longBreakTime);
@@ -99,6 +102,12 @@ export const Timer = {
 
     // Updates
     update() {
+        if (this.time <= 0) {
+            this.updateCycle(true);
+            AudioEngine.play("bell");
+            return;
+        }
+
         Storage.set("timeLeft", this.time);
         this.formattedTime = this._formatTime();
         UI.renderTime(this.formattedTime);
@@ -108,10 +117,17 @@ export const Timer = {
         UI.renderCycle(this.cycleCount);
     },
 
-    updateCycle() {
+    updateCycle(completed = false) {
         this.stop();
         this.cycleCount++;
+        Storage.set("cycleCount", this.cycleCount);
         this.updateCycleCounter();
+
+        if (completed && this.mode === "work") {
+            this.completedCyclesCount++;
+            Storage.set("completedCyclesCount", this.completedCyclesCount);
+            // Update UI that displays this
+        }
 
         if (this.cycleCount % 8 === 0) {
             this.switchMode("long");
@@ -124,24 +140,29 @@ export const Timer = {
         this.reset();
     },
 
-    switchMode(mode) {
+    switchMode(mode, init = false) {
         if (mode === "break") {
             UI.setTheme(mode);
-            this.time = this.breakTime;
+            if (!init) this.time = this.breakTime;
         } else if (mode === "long") {
             UI.setTheme(mode);
-            this.time = this.longBreakTime;
+            if (!init) this.time = this.longBreakTime;
         } else {
             UI.setTheme(mode);
-            this.time = this.workTime;
+            if (!init) this.time = this.workTime;
+        }
+
+        if (!init) {
+            this.mode = mode;
+            Storage.set("mode", mode);
         }
     },
 
     // Settings
     openSettings() {
         UI.elements.workTimeField.value = this.workTime / 60;
-        UI.breakTimeField = this.breakTime / 60;
-        UI.longBreakTimeField = this.longBreakTime / 60;
+        UI.elements.breakTimeField.value = this.breakTime / 60;
+        UI.elements.longBreakTimeField.value = this.longBreakTime / 60;
 
         UI.elements.timerDialog.showModal();
     },
@@ -150,7 +171,7 @@ export const Timer = {
         const workTime = parseInt(UI.elements.workTimeField.value);
         const breakTime = parseInt(UI.elements.breakTimeField.value);
         const longBreakTime = parseInt(UI.elements.longBreakTimeField.value);
-        
+
         if (
             isNaN(workTime) || workTime < 0 ||
             isNaN(breakTime) || breakTime < 0 ||
@@ -176,5 +197,12 @@ export const Timer = {
         Toast.normal("general", "Changes saved");
 
         this.reset();
+    },
+
+    // Page timer initialisation
+    init() {
+        this.update();
+        this.updateCycleCounter();
+        this.switchMode(this.mode, true);
     },
 }

@@ -13,6 +13,7 @@ Part of my journey to undoing my vibecoding brainrot. My aim is to fluently use 
 - Lofi radio
 
 ## New concepts for me:
+- OOP style frontend modules in vanilla js
 - toasts in vanilla js
 - dialogs in vanilla js
 - audio in vanilla js
