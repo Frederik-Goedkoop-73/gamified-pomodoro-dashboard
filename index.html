@@ -125,10 +125,24 @@
       Add task
     </button>
 
-    <div id="task-container"></div>
+    <ul id="task-list"></ul>
 
     <!-- Lofi player (Footer)-->
     <!-- <h2>LOFI player</h2> -->
+
+    <!-- Templates -->
+    <template id="task-template">
+      <li class="task-item">
+        <label class="task-checkbox-wrapper">
+          <input type="checkbox" class="task-checkbox" />
+          <span class="checkmark"></span>
+        </label>
+
+        <span class="task-text"></span>
+
+        <button class="task-delete-btn" aria-label="Delete task">✖</button>
+      </li>
+    </template>
 
     <!-- Import script (no module -> so file can be opened locally – no CORS issues) -->
     <script src="scripts/main.js" type="module"></script>

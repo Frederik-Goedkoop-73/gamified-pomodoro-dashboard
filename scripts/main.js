@@ -2,9 +2,11 @@ import { Timer } from "./timer.js";
 import { UI } from "./ui.js";
 import { AudioEngine } from "./audio.js";
 import { Toast } from "./toast.js";
+import { Tasks } from "./tasks.js";
 
 // Initialisation
 Timer.init();
+Tasks.init();
 
 // Listeners to start functions
 // Timer
@@ -55,11 +57,11 @@ UI.elements.timerDialog.addEventListener("keypress", (e) => {
 });
 
 // Tasks
-UI.elements.addTaskBtn.addEventListener("click", () => {
-    if (UI.elements.addTaskField.value !== "") {
-        UI.addTask();
-        AudioEngine.play("button");
-    } else {
-        Toast.alert("general", "Please input a task first");
+const taskInput = document.getElementById("task-input");
+document.getElementById("add-task-btn").addEventListener("click", () => {
+    const text = taskInput.value;
+    if (text.trim() !== "") {
+        Tasks.add(text);
+        taskInput.value = "";
     }
 })

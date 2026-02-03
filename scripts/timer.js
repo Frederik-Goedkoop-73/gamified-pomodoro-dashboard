@@ -17,7 +17,7 @@ export const Timer = {
 
     time: Storage.get("timeLeft", 1500), // Time left
 
-    formattedTime: null,
+    formattedTime: null, 
 
     _formatTime() {
         const h = Math.floor(this.time / 3600)

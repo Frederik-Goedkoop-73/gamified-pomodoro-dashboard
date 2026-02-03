@@ -31,9 +31,9 @@ body {
 
 /* Placeholder for your future settings button */
 .reset-btn-timer-header {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .settings-btn-timer-header {
@@ -89,7 +89,7 @@ body {
   width: 300px;
   background: #fdfaf6; /* Slightly lighter than the body */
   box-shadow: 10px 10px 0px #333; /* Matching your timer shadow */
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 /* 2. Style the Title inside */
@@ -103,7 +103,7 @@ body {
 /* 3. The Backdrop (The background overlay) */
 .dialog::backdrop {
   background: rgba(0, 0, 0, 0.5); /* Dim the background */
-  backdrop-filter: blur(4px);    /* Modern lofi blur effect */
+  backdrop-filter: blur(4px); /* Modern lofi blur effect */
 }
 
 /* 4. A close button or content styling */
@@ -125,46 +125,106 @@ body {
 }
 
 .settings-btn {
-    /* 1. Basic Shape */
-    width: 65px;
-    padding: 8px;
-    margin-bottom: 10px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
+  /* 1. Basic Shape */
+  width: 65px;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 
-    /* 2. Lofi Colors & Border */
-    background-color: #fdfaf6; /* Matches dialog background */
-    color: #333;
-    border: 3px solid #333; /* Chunky border */
-    border-radius: 8px;
-    
-    /* 3. The "Lofi Shadow" */
-    box-shadow: 4px 4px 0px #333;
-    
-    /* 4. Cleaning up UI */
-    outline: none; /* Removes the blue browser outline */
-    transition: transform 0.1s, box-shadow 0.1s;
-    cursor: pointer;
+  /* 2. Lofi Colors & Border */
+  background-color: #fdfaf6; /* Matches dialog background */
+  color: #333;
+  border: 3px solid #333; /* Chunky border */
+  border-radius: 8px;
+
+  /* 3. The "Lofi Shadow" */
+  box-shadow: 4px 4px 0px #333;
+
+  /* 4. Cleaning up UI */
+  outline: none; /* Removes the blue browser outline */
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+  cursor: pointer;
 }
 
 /* Style when the user clicks/focuses it */
 .settings-btn:focus {
-    transform: translate(2px, 2px); /* "Pressing" effect */
-    box-shadow: 2px 2px 0px #333;
-    background-color: #fff;
-    border-color: #2563eb; /* Subtle hint of color when editing */
+  transform: translate(2px, 2px); /* "Pressing" effect */
+  box-shadow: 2px 2px 0px #333;
+  background-color: #fff;
+  border-color: #2563eb; /* Subtle hint of color when editing */
 }
 
 /* Removing the tiny up/down arrows (spinners) for a cleaner look */
 .settings-btn::-webkit-inner-spin-button,
 .settings-btn::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+/* Task styles */
+/* Container reset */
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
 
+/* The Task Box */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  border: 3px solid #333;
+  box-shadow: 4px 4px 0px #333;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: transform 0.1s;
+}
+
+.task-item:hover {
+  transform: translate(-1px, -1px);
+}
+
+/* The Text */
+.task-text {
+  flex-grow: 1; /* Pushes delete button to the right */
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Completed State */
+.task-item.completed {
+  background-color: #e0e0e0;
+  box-shadow: 2px 2px 0px #333; /* Pressed down look */
+  opacity: 0.7;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #666;
+}
+
+/* The Delete Button */
+.task-delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+}
+
+.task-delete-btn:hover {
+  color: #d45c5c; /* Red on hover */
+}
 
 /* Toast styles */
 .toast-container {
@@ -178,8 +238,10 @@ body {
   border-radius: 10px;
   box-shadow: 5px 5px 0px #333;
   z-index: 9999;
-  transition: opacity 0.3s, transform 0.3s;
-  pointer-event: none;  /* So it doesn't block clicks */
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  pointer-event: none; /* So it doesn't block clicks */
 }
 
 .toast-hidden {
