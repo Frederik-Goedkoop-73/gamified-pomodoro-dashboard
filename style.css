@@ -11,6 +11,42 @@ body {
   display: none;
 }
 
+.navbar {
+  /* 1. Use box-sizing so padding doesn't increase the total height */
+  box-sizing: border-box; 
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* 2. Use 100vh (Viewport Height) to fill the screen exactly */
+  height: 100vh; 
+  
+  background: #ada395;
+  padding: 20px 10px; /* Top/Bottom 20px, Left/Right 10px */
+  
+  position: fixed;
+  left: 0;
+  top: 0;
+  gap: 50px;
+}
+
+/* 3. The "Push" logic */
+/* This targets the second-to-last image and pushes it and the one below it to the bottom */
+.navbar img:nth-last-child(2) {
+  margin-top: auto;
+}
+
+.navbar img {
+  width: 30px;   /* Ensure icons aren't too big */
+  height: auto;
+  display: block; /* Removes weird bottom spacing on images */
+  transition: transform 0.2s;
+}
+
+.navbar img:hover {
+  transform: scale(1.1);
+}
+
 .timer-container {
   background: white;
   border: 3px solid #333; /* Chunky border */
