@@ -1,14 +1,27 @@
 import { Timer } from "./timer.js";
 import { UI } from "./ui.js";
 import { AudioEngine } from "./audio.js";
-import { Toast } from "./toast.js";
 import { Tasks } from "./tasks.js";
+import { Notes } from "./notes.js";
 
 // Initialisation
 Timer.init();
 Tasks.init();
+Notes.init();
 
 // Listeners to start functions
+// Navbar
+const smoothScrollTo = (target) => {
+    document.querySelector(target).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+UI.elements.toTimerBtn.addEventListener("click", () => smoothScrollTo("#timer-section"));
+UI.elements.toTasksBtn.addEventListener("click", () => smoothScrollTo("#task-section"));
+UI.elements.toNotesBtn.addEventListener("click", () => smoothScrollTo("#notes-section"));
+UI.elements.toLofiBtn.addEventListener("click", () => smoothScrollTo("#lofi-section"));
+
 // Timer
 UI.elements.startBtn.addEventListener("click", () => {
     Timer.toggle();
@@ -65,3 +78,5 @@ document.getElementById("add-task-btn").addEventListener("click", () => {
         taskInput.value = "";
     }
 })
+
+// Notes

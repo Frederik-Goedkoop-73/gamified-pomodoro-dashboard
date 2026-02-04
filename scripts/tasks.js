@@ -24,7 +24,7 @@ export const Tasks = {
         this.savedTasks.push(newTask);
         this.save();
         this.render(newTask);
-        AudioEngine.play("boop");
+        AudioEngine.play("button");
     },
 
     render(taskData) {
@@ -77,6 +77,7 @@ export const Tasks = {
         // Animate out
         element.style.transform = "scale(0.9)";
         element.style.opacity = "0";
+        AudioEngine.play("boop");
 
         setTimeout(() => {
             element.remove();

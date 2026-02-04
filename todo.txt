@@ -1,6 +1,6 @@
 General:
 - Make static navbar -> general settings (clear progress, profile img, stats, level, coins ...)
-- 
+- Move addEventListener inside render functions of the different files -> cluttering main.js
 
 Timer:
 - Save mode, cycleCounts!!!
@@ -14,6 +14,9 @@ Timer:
 Task manager:
 - General logic for queueing tasks
 - First task name -> title of website
+
+Notes:
+- Save spacings -> convert to ASCII and convert back when laoding?
 
 CSS:
 - Clean classnames and make code more reusable

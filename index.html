@@ -3,17 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title id="title">LOFI pomodoro</title>
+    <title id="title">Lofi pomodoro</title>
     <link rel="icon" type="icon/x-icon" href="assets/buttons/x_icon.svg" />
 
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <nav>
+      <button id="scrollToTimer">Timer</button>
+      <button id="scrollToTasks">Tasks</button>
+      <button id="scrollToNotes">Notes</button>
+      <button id="scrollToLofi">LOFI</button>
+      <button>Stats</button>
+      <button>Settings</button>
+    </nav>
+
     <!-- Header -->
-    <h1>LOFI Pomodoro</h1>
+    <h1>Lofi Pomodoro</h1>
 
     <!-- Timer -->
-    <h2>Timer</h2>
+    <h2 id="timer-section">Timer</h2>
 
     <div class="timer-container">
       <div class="timer-header">
@@ -112,7 +121,7 @@
     </div>
 
     <!-- Task manager -->
-    <h2>Task manager</h2>
+    <h2 id="task-section">Task manager</h2>
     <input
       type="text"
       id="task-input"
@@ -127,8 +136,19 @@
 
     <ul id="task-list"></ul>
 
+    <!-- Notes -->
+    <h2 id="notes-section">Notes</h2>
+    <div class="notes-container">
+        <textarea id="notes-field">...</textarea>
+    </div>
+
     <!-- Lofi player (Footer)-->
-    <!-- <h2>LOFI player</h2> -->
+     <h2 id="lofi-section">Lofi radio</h2>
+     <div class="timer-container">
+      <p>play btn</p>
+      <p>skip btn</p>
+      <p>volume slider</p>
+     </div>
 
     <!-- Templates -->
     <template id="task-template">

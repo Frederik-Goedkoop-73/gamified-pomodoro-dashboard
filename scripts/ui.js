@@ -1,22 +1,30 @@
 export const UI = {
     elements: {
-        // Main DOM targets
+        // Targets
+        // Main targets
         timer: document.getElementById("timer"),
         cycle: document.getElementById("cycle-counter"),
         body: document.body,
         title: document.getElementById("title"),
 
-        // Timer settings DOM targets
+        // Timer settings targets
         timerDialog: document.getElementById("timer-settings-dialog"),
         workTimeField: document.getElementById("time-settings-input"),
         breakTimeField: document.getElementById("break-settings-input"),
         longBreakTimeField: document.getElementById("long-break-settings-input"),
 
-        // Tasks DOM targets
+        // Tasks targets
         taskContainer: document.getElementById("task-container"),
         addTaskField: document.getElementById("task-input"),
+        
+        // Listeners
+        // Navbar listeners
+        toTimerBtn: document.getElementById("scrollToTimer"),
+        toTasksBtn: document.getElementById("scrollToTasks"),
+        toNotesBtn: document.getElementById("scrollToNotes"),
+        toLofiBtn: document.getElementById("scrollToLofi"),
 
-        // Timer DOM listeners
+        // Timer listeners
         startBtn: document.getElementById("start-timer-btn"),
         resetBtn: document.getElementById("reset-timer-btn"),
         pomoResetBtn: document.getElementById("reset-pomodoro-btn"),
@@ -24,7 +32,7 @@ export const UI = {
         settingsBtn: document.getElementById("timer-settings-btn"),
         closeSettingsBtn: document.getElementById("close-timer-settings-btn"),
 
-        // Tasks DOM listeners
+        // Tasks listeners
         addTaskBtn: document.getElementById("add-task-btn"),
 
     },
